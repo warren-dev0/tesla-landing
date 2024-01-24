@@ -1,0 +1,35 @@
+---
+const { navColor, color, title, text1, text2, textanchor} = Astro.props;
+
+const textColor = `text-${color}`;
+---
+
+<section class="landing-section snap-center relative h-screen w-screen" data-header-color={navColor}>
+
+  <div
+    class="flex flex-col w-screen h-screen text-center overflow-hidden sticky z-30"
+  >
+    <header class={`flex flex-col relative ${textColor}`}>
+      <h2 class="pt-24 text-[40px] font-medium">{title}</h2>
+      <p class="text-sm">{text1}</p>
+      <p class="text-sm">{text2}</p>
+      <div>
+        <a href="#" class="text-sm border-b-[1px] border-solid border-current">{textanchor}</a>
+      </div>
+    </header>
+
+    <footer
+      class="flex flex-col flex-grow basis-0 justify-end relative pb-24"
+    >
+      <slot name="button1"></slot>
+      <slot name="button2"></slot>
+    </footer>
+
+    <slot name="footer"></slot>
+  </div>
+
+  <slot slot="background">
+  </slot>
+</section>
+
+
